@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Interactable
+  - ladder
   layers:
   - Default
   - TransparentFX

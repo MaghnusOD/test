@@ -29,6 +29,8 @@ public class player_movement : MonoBehaviour
     // boolean for surface-level debugging in editor, does not effect player
     bool is_grounded_check;
 
+    bool is_on_ladder = false;
+
     
 
     int layerMask;
@@ -68,7 +70,7 @@ public class player_movement : MonoBehaviour
 
 
 
-
+        // sprint code
         if(Input.GetKey(KeyCode.LeftShift) && is_grounded())
         {
             controller.Move(move * sprint * Time.deltaTime);
@@ -78,15 +80,14 @@ public class player_movement : MonoBehaviour
             controller.Move(move * speed * Time.deltaTime);
         }
 
-        
-
-
-
+        // jump code
         if (Input.GetButtonDown("Jump") && is_grounded())
         {
 
             velocity.y = Mathf.Sqrt(jump_height * -2f * gravity);
         }
+
+
 
 
         velocity.y += (gravity)  * Time.deltaTime;
